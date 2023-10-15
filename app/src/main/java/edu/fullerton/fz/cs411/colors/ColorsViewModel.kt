@@ -20,6 +20,10 @@ class ColorsViewModel: ViewModel() {
         this.red_score += 1
     }
 
+    fun setScore(s: Int) {
+        red_score = s
+    }
+
     fun getScore(): Int {
         return red_score
     }

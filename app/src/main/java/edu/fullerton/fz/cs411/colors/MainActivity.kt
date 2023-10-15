@@ -7,7 +7,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.Switch
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+
+
+const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,9 +36,26 @@ class MainActivity : AppCompatActivity() {
         println("whaaa")
     }
 
+    private val colorsViewModel: ColorsViewModel by lazy {
+        ViewModelProvider(this)[ColorsViewModel::class.java]
+
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val currentredScore = savedInstanceState?.getInt(TAG,0) ?: 0
+        colorsViewModel.setScore(currentredScore)
+
+
+        connectViewColors()
+        setupSwitchCallbacks()
+        setupTextCallbacks()
+        setupSeekBarCallbacks()
+
 
         val colorFragment = this.supportFragmentManager.findFragmentById(R.id.primary_frame)
         if (colorFragment == null) {
@@ -50,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         val colorbarsFragment = this.supportFragmentManager.findFragmentById(R.id.secondary_frame)
         if (colorbarsFragment == null) {
 
-            val fragment = ColorFrameFragment()
+            val fragment = ColorBarsFragment()
             this.supportFragmentManager
                 .beginTransaction()
                 .add(R.id.secondary_frame, fragment)
@@ -58,11 +78,9 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        connectViewColors()
-        setupSwitchCallbacks()
-        setupTextCallbacks()
-        setupSeekBarCallbacks()
+
     }
+
     private fun connectViewColors() {
 
         this.redSwitch = this.findViewById(R.id.red_switch)
@@ -103,4 +121,4 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-}
+    }

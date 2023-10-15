@@ -38,9 +38,10 @@
                 android:layout_height="wrap_content"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
+                android:textAlignment="center"
                 android:ems="2"
-                android:inputType="numberDecimal"
-                android:text="0.0" />
+                android:inputType="number"
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,9 +72,10 @@
                 android:layout_height="wrap_content"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
+                android:textAlignment="center"
                 android:ems="2"
-                android:inputType="numberDecimal"
-                android:text="0.0"/>
+                android:inputType="text"
+                android:text="0"/>
         </LinearLayout>
 
         <LinearLayout
@@ -105,9 +107,10 @@
                 android:layout_height="wrap_content"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
+                android:textAlignment="center"
                 android:ems="2"
-                android:inputType="numberDecimal"
-                android:text="0.0"/>
+                android:inputType="text"
+                android:text="0"/>
 
         </LinearLayout>
 
@@ -115,7 +118,7 @@
             android:id="@+id/button_reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="50dp"
+            android:layout_margin="75dp"
             android:layout_weight="1"
             android:text="@string/reset" />
     </LinearLayout>
