@@ -7,25 +7,31 @@ private const val LOG_TAG = "ColorsViewModel"
 
 class ColorsViewModel: ViewModel() {
 
-    private var red_score = 0
-    private var blue_score = 0
-    private var green_score = 0
+    private var redScore = 255
+    private var redSwitchPos = true
+
 
     override fun onCleared() {
         super.onCleared()
-        Log.d(LOG_TAG, "ColorsView model to be destroyed")
     }
 
-    fun color_shift(base: Int) {
-        this.red_score += 1
+    fun red_inc(base: Int) {
+        this.redScore += 1
     }
 
-    fun setScore(s: Int) {
-        red_score = s
+    fun setRScore(s: Int) {
+        redScore = s
     }
 
     fun getScore(): Int {
-        return red_score
+        return this.redScore
+    }
+    fun get_RSw_pos(): Boolean {
+        return this.redSwitchPos
+    }
+
+    fun flip_rSwitch(){
+        redSwitchPos = !redSwitchPos
     }
 
 
