@@ -12,7 +12,7 @@ class ColorFrameFragment: Fragment() {
 
     private lateinit var colorsViewModel: ColorsViewModel
 
-    private lateinit var colorCard: CardView
+    private lateinit var viewColor: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class ColorFrameFragment: Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_color_frame, container,false)
 
-        this.colorCard = view.findViewById(R.id.card_color)
+        this.viewColor = view.findViewById(R.id.view_color)
 
         return view
     }
